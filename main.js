@@ -14,7 +14,7 @@ const traffic=[
 
 animate();
 
-function animate(){
+function animate(time){
     for(let i=0;i<traffic.length;i++){
         traffic[i].update(road.borders,[]);
     }
@@ -25,14 +25,16 @@ function animate(){
 
     carCtx.save();
     carCtx.translate(0,-car.y+carCanvas.height*0.7);
+
     road.draw(carCtx);
     for(let i=0;i<traffic.length;i++){
         traffic[i].draw(carCtx,"red");
     }
-
     car.draw(carCtx,"blue");
+    
     carCtx.restore();
     
+    networkCtx.lineDashOffset=-time/50;
     Visualizer.drawNetwork(networkCtx,car.brain);
     requestAnimationFrame(animate);
 }
