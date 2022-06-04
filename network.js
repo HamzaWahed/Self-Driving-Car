@@ -10,8 +10,8 @@ class NeuralNetwork{
 
     static feedForward(givenInputs,network){
         let outputs=Level.feedForward(
-            givenInputs,network.level[0]);
-        for(leti=1;i<network.levels.length;i++){
+            givenInputs,network.levels[0]);
+        for(let i=1;i<network.levels.length;i++){
             outputs=Level.feedForward(
                 outputs,network.levels[i]);
         }
@@ -22,7 +22,7 @@ class NeuralNetwork{
 class Level{
     constructor(inputCount,outputCount){
         this.inputs=new Array(inputCount);
-        this.inputs=new Array(outputCount);
+        this.outputs=new Array(outputCount);
         this.biases=new Array(outputCount);
 
         this.weights=[];
