@@ -22,10 +22,10 @@ function animate(){
     ctx.translate(0,-car.y+canvas.height*0.7);
     road.draw(ctx);
     for(let i=0;i<traffic.length;i++){
-        traffic[i].draw(ctx);
+        traffic[i].draw(ctx,"red");
     }
 
-    car.draw(ctx);
+    car.draw(ctx,"blue");
     ctx.restore();
     //calls animate method multiple times
     requestAnimationFrame(animate);
